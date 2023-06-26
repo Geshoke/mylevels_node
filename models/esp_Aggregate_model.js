@@ -16,7 +16,7 @@ const ESP_Aggregate_tbl = connection.define('ESP_Aggregate_tbl', {
     EspTime: Sequelize.DATE,
     EspKey: {
         type: Sequelize.STRING,
-        primaryKey: true,
+        // primaryKey: true,
     },
 });
 
