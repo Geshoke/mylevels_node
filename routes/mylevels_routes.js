@@ -60,10 +60,14 @@ Customer_ID_tableModel.sync({ force: false }) // This will recreate the tables e
 router.post('/aggregateESP_Readings',
     // ValidateToken, 
     (req, res) => {
-        console.log(req.body);
+        // console.log(req.body);//development
+        let epochtime = req.body.esp_time //unix time
+
+        //converting to ISO 8601 time stamp
+       let time = new Date(epochtime).toISOString()
         esp_aggregateTableModel.create({
             readings: req.body.reading,
-            EspTime: req.body.esp_time,
+            EspTime: time,
             EspKey: req.body.espid
         }).then((jibu) => {
 
