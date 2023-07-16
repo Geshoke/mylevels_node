@@ -64,7 +64,7 @@ router.post('/aggregateESP_Readings',
         let epochtime = req.body.esp_time //unix time
 
         //converting to ISO 8601 time stamp
-       let time = new Date(epochtime).toISOString()
+       let time = new Date(epochtime*1000).toISOString()
         esp_aggregateTableModel.create({
             readings: req.body.reading,
             EspTime: time,
